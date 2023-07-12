@@ -2,8 +2,12 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(25, 1fr);
-  grid-template-rows: repeat(20, 1fr);
-  gap: 5px;
+  grid-template-rows: auto-fill;
+  gap: 2.5px;
   position: relative;
+}
+
+.game-screen div {
+    background-color: gray;
+    border-radius: 50%;
 }

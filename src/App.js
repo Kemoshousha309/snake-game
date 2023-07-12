@@ -2,23 +2,20 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { GameScreen } from './Components/GameScreen/GameScreen';
 import { Segment } from './Components/Segment/Segment';
+import { createElement } from "react";
+import {renderSegments} from "./renderSegments.js"
+
+const columnsNum = 50;
+
 
 function App() {
-  const [startPosition, setStartPosition] = useState([0, 0]);
-
-  useEffect(() => {
-    const startPoint = document.getElementById("portion-235");
-    const startPointCoordinates = [
-      Math.round(startPoint.getBoundingClientRect().left),
-      Math.round(startPoint.getBoundingClientRect().top)
-    ]
-    setStartPosition(startPointCoordinates);
-  }, [])
-
+ const []
   return (
     <div className="App">
-      <GameScreen>
-        <Segment position={startPosition} />
+      <GameScreen colNum={columnsNum}>
+          {
+              renderSegments()
+          }
       </GameScreen>
     </div>
   );

@@ -1,15 +1,14 @@
 import "./style.css";
 
-export const Segment = ({position}) => {
-  const [x, y] = position;
-  const style = {
-    top: `${y}px`,
-    left: `${x}px`
+export const Segment = ({id, active, head, children}) => {
+  const style = {}
+  if(active) {
+      style.backgroundColor = "yellow"
   }
-  console.log(position)
+    
   return (
-    <div className="snake-head" style={style}>
-
+    <div className="segment" id={`segment-${id}`} style={style}>
+        
     </div>
   )
 }
