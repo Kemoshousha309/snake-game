@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { GameScreen } from './Components/GameScreen/GameScreen';
+import { Segment } from './Components/Segment/Segment';
 
 function App() {
+  const [startPosition, setStartPosition] = useState([0, 0]);
+
+  useEffect(() => {
+    const startPoint = document.getElementById("portion-235");
+    const startPointCoordinates = [
+      Math.round(startPoint.getBoundingClientRect().left),
+      Math.round(startPoint.getBoundingClientRect().top)
+    ]
+    setStartPosition(startPointCoordinates);
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GameScreen>
+        <Segment position={startPosition} />
+      </GameScreen>
     </div>
   );
 }
