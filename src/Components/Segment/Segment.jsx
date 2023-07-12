@@ -5,6 +5,9 @@ export const Segment = ({id, active, head, children}) => {
   if(active) {
       style.backgroundColor = "yellow"
   }
+  if(head) {
+    style.backgroundColor = "blue"
+  }
     
   return (
     <div className="segment" id={`segment-${id}`} style={style}>
