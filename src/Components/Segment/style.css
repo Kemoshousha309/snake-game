@@ -3,5 +3,35 @@
 }
 
 .segment {
-    
+    position: relative;
+    border-radius: 50%;
+}
+
+.eye {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: black;
+}
+
+.eye-right {
+    top: 20%;
+    left: 0;
+}
+
+.eye-left {
+    top: 20%;
+    right: 0;
+}
+
+
+.eye-up {
+    top: 45%;
+    left: 0;
+}
+
+.eye-down {
+    top: 20%;
+    right: 0;
 }

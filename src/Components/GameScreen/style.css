@@ -3,11 +3,5 @@
   height: 100vh;
   display: grid;
   grid-template-rows: auto-fill;
-  gap: 2.5px;
   position: relative;
-}
-
-.game-screen div {
-    background-color: gray;
-    border-radius: 50%;
 }

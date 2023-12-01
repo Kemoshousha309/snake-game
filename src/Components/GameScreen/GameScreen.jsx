@@ -1,27 +1,45 @@
 import { Segment } from "../Segment/Segment";
 import "./style.css";
 
-export const GameScreen = ({ colNum, head, body, direction }) => {
-  console.log(body)
-  const renderSegments = (head, body, direction) => {
-    const segmentsList = [];
-    for (let i = 0; i < 1000; i++) {
-      let active = false;
-      let headType = false;
-      active = body.find((activeSeg) => i === activeSeg);
-      if (i === head) {
-        active = true;
-        headType = true;
-      }
-      const segment = (
-        <Segment id={i} active={!!active} head={headType}>
-          {i}
-        </Segment>
-      );
-      segmentsList.push(segment);
+export const GameScreen = ({
+  colNum,
+  head,
+  body,
+  direction,
+  feed,
+  borders,
+}) => {
+  const segmentsList = [];
+  for (let i = 0; i < 1000; i++) {
+    let active = false;
+    let headType = false;
+    let feedType = false;
+    let border = false;
+    active = body.find((activeSeg) => i === activeSeg);
+    if (i === head) {
+      active = true;
+      headType = true;
     }
-    return segmentsList;
-  };
+    if (i === feed) {
+      active = true;
+      feedType = true;
+    }
+    if(borders) {
+      border = borders.find((border) => border === i);
+    }
+    if(border === 0) border = true;
+    const segment = (
+      <Segment
+        id={i}
+        active={!!active}
+        head={headType}
+        feed={feedType}
+        direction={direction}
+        border={!!border}
+      ></Segment>
+    );
+    segmentsList.push(segment);
+  }
 
   return (
     <div
@@ -30,7 +48,7 @@ export const GameScreen = ({ colNum, head, body, direction }) => {
         gridTemplateColumns: `repeat(${colNum}, 1fr)`,
       }}
     >
-      {renderSegments(head, body, direction)}
+      {segmentsList}
     </div>
   );
 };
